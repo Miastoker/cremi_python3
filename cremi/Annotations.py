@@ -1,7 +1,6 @@
 class Annotations:
 
-    def __init__(self, offset = (0.0, 0.0, 0.0)):
-
+    def __init__(self, offset=(0.0, 0.0, 0.0)):
         self.__types = {}
         self.__locations = {}
         self.comments = {}
@@ -30,7 +29,7 @@ class Annotations:
                 The location of the annotation, relative to the offset.
         """
 
-        self.__types[id] = type.encode('utf8')
+        self.__types[id] = type.decode('utf-8')
         self.__locations[id] = location
 
     def add_comment(self, id, comment):
@@ -38,7 +37,7 @@ class Annotations:
         """
 
         self.__check(id)
-        self.comments[id] = comment.encode('utf8')
+        self.comments[id] = comment.decode('utf-8')
 
     def set_pre_post_partners(self, pre_id, post_id):
         """Mark two annotations as pre- and post-synaptic partners.
